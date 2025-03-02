@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+# Logs
+logs
+# Environment variables
+.env
+# Build artifacts
+/build
+/dist
+/public/static
+*.cache
+.next
+out/
+coverage/
+# MongoDB database dumps
+dump/

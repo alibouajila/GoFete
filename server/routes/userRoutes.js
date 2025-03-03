@@ -2,6 +2,8 @@ import express from 'express';
 import User from '../models/user.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import authMiddleware from "../Middleware/authMiddleware.js"
+import Event from "../models/event.js"
 const JWT_SECRET = "rourouu2";
 const router = express.Router();
 
@@ -68,6 +70,22 @@ router.post("/login", async (req, res) => {
 
     res.status(200).json({ message: "Login successful", token });
 
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+router.get("/my-events", authMiddleware, async (req, res) => {
+  try {
+    const organizerId = req.user.userId; // Extract organizer ID from the token
+    const role = req.user.role;
+    if (role !== "organizer") {
+      return res.status(403).json({ message: "Unauthorized: Only organizers can access to this route" });
+    }
+    // Find all events created by the organizer
+    const events = await Event.find({ organizer: organizerId });
+
+    res.status(200).json({ events });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });

@@ -4,11 +4,15 @@ import Event from "../models/event.js";
 
 const router = express.Router();
 
-// Create Event - Only for organizers
+// Only for organizers
 router.post("/add", authMiddleware, async (req, res) => {
   try {
     const { title, description, date, location, time } = req.body;
     const organizer = req.user.userId; // Extract organizer ID from token
+    const role = req.user.role; // Extract user ID and role
+    if (role !== "organizer") {
+      return res.status(403).json({ message: "Unauthorized: Only organizers can create events" });
+    }
     if (!title || !description || !date || !location ||!time) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -36,6 +40,10 @@ router.delete('/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.user.userId;
+    const role = req.user.role;
+    if (role !== "organizer") {
+      return res.status(403).json({ message: "Unauthorized: Only organizers can delete events" });
+    }
     // Find the event
     const event = await Event.findById(id);
     if (!event) {
@@ -54,6 +62,19 @@ router.delete('/:id', authMiddleware, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Server error' });
+  }
+});
+// For users 
+router.get("/all",authMiddleware, async (req, res) => {
+  try {
+
+    // Find all events 
+    const events = await Event.find();
+
+    res.status(200).json({ events });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

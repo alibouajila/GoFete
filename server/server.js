@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoutes.js';
 import evenRoutes from "./routes/eventRoutes.js"
+import "./jobs/eventCleanup.js";
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/GoFete", {
 })

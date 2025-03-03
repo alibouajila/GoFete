@@ -1,0 +1,92 @@
+/* General styles for the container */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header style */
+  .auth-container h2 {
+    text-align: center;
+    color: #211C84; /* Primary color */
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form container */
+  .auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  /* Input fields */
+  .auth-container input,
+  .auth-container select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Input fields focus state */
+  .auth-container input:focus,
+  .auth-container select:focus {
+    border-color: #7A73D1; /* Lighter purple on focus */
+  }
+  
+  /* Submit button */
+  .auth-container button {
+    padding: 12px;
+    background-color: #4D55CC; /* Secondary color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover state */
+  .auth-container button:hover {
+    background-color: #7A73D1; /* Lighter purple on hover */
+  }
+  
+  /* Error and success messages */
+  .auth-container .error-message,
+  .auth-container .success-message {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .auth-container .error-message {
+    color: red;
+  }
+  
+  .auth-container .success-message {
+    color: green;
+  }
+  
+  /* Additional link for login page */
+  .auth-container .auth-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .auth-container .auth-link a {
+    color: #4D55CC;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .auth-container .auth-link a:hover {
+    color: #7A73D1; /* Lighter purple on hover */
+  }
+  

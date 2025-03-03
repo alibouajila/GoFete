@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ message: "Password must be at least 6 characters" });
     }
     // Restrict role values (optional)
-    const allowedRoles = ["user", "admin"];
+    const allowedRoles = ["user", "organizer"];
     const userRole = allowedRoles.includes(role) ? role : "user"; 
     // Check if user already exists
     let user = await User.findOne({ email });

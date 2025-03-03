@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoutes.js';
 import evenRoutes from "./routes/eventRoutes.js"
+import cors from'cors'
 import "./jobs/eventCleanup.js";
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/GoFete", {
@@ -11,6 +12,7 @@ mongoose.connect("mongodb://localhost:27017/GoFete", {
 const app = express();    
 // Middleware
 app.use(express.json());
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 
 // Use the user route, prefixing all routes with '/user'

@@ -145,7 +145,10 @@ const Organizer = () => {
         {events.length > 0 ? (
           events.map((event) => (
             <li key={event._id}>
-              <strong>{event.title}</strong> - {event.date} at {event.time} in {event.location}
+              <strong>{event.title}</strong> a{new Date(event.date).toLocaleDateString()}  &nb     p;|&nbsp; at   &nbsp;|&nbsp; 
+     
+    {new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} &nbsp;&nbsp; 
+    at {event.location} &nbsp;&nbsp; 
               <button onClick={() => handleDeleteEvent(event._id)}>Delete</button>
             </li>
           ))

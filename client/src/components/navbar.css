@@ -13,7 +13,7 @@
   }
   
   .navbar-left .navbar-link {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     color: white;
     text-decoration: none;
@@ -21,7 +21,7 @@
   }
   
   .navbar-left .navbar-link:hover {
-    color: #B5A8D5; /* Lighter purple */
+    color: #B5A8D5; 
   }
   
   .navbar-right {
@@ -30,7 +30,7 @@
   }
   
   .navbar-button {
-    background-color: #444bac; /* Secondary color */
+    background-color: #444bac; 
     color: white;
     border: none;
     padding: 8px 15px;
@@ -40,7 +40,7 @@
   }
   
   .navbar-button:hover {
-    background-color: #7A73D1; /* Lighter blue */
+    background-color: #7A73D1;
   }
   
   .navbar-link {
@@ -51,6 +51,6 @@
   }
   
   .navbar-link:hover {
-    color: #B5A8D5; /* Lighter purple */
+    color: #B5A8D5; 
   }
   
